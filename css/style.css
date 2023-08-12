@@ -460,6 +460,9 @@ button {
   cursor: pointer;
   padding: 12px 24px;
   border-radius: 4px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-btn:hover,
@@ -467,6 +470,8 @@ button {
   background: var(--ocean);
   color: var(--white);
   border: 1px solid transparent;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
+    0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
 }
 .portfolio-card {
   display: flex;
@@ -476,6 +481,39 @@ button {
 }
 .portfolio-card-item {
   width: calc((100% - 24 * 2) / 3);
+}
+
+.portfolio-card-link {
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-card-link:hover {
+  border: 1px solid var(--cloud);
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
+.portfolio-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.wrapper-text {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 40px 32px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5; /* 150% */
+  letter-spacing: 0.02em;
+  color: var(--cloud);
+  background-color: var(--iris);
+  transition: transform 250 ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(100%);
+}
+.portfolio-wrapper:hover .wrapper-text,
+.portfolio-wrapper:focus .wrapper-text {
+  transform: translateY(0%);
 }
 .portfolio-box {
   padding: 32px 16px;
