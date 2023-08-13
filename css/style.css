@@ -83,6 +83,8 @@ button {
 /* Header styles */
 
 .header {
+  box-shadow: 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 1px 6px rgba(46, 47, 66, 0.08);
   border-bottom: 1px solid #e7e9fc;
 }
 .container {
@@ -103,7 +105,7 @@ button {
 
 .nav-page {
   display: flex;
-  color: var(--navyblue);
+  color: var(--ocean);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5; /* 150% */
@@ -111,11 +113,21 @@ button {
   padding-top: 24px;
   padding-bottom: 24px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 .nav-page:hover,
 .nav-page:focus,
 .nav-page:active {
   color: var(--ocean);
+}
+.nav-page::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 4px;
+  background-color: var(--ocean);
+  border-radius: 2px;
 }
 
 .contact {
@@ -156,7 +168,7 @@ button {
     ),
     url(../images/hero_bg.jpg);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
 }
 
@@ -278,6 +290,8 @@ button {
 .team-card-item {
   flex-basis: calc((100% - 24 * 3) / 4);
   border-radius: 0px 0px 4px 4px;
+  box-shadow: 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .team-box {
@@ -334,6 +348,7 @@ button {
   border-radius: 50%;
   background-color: var(--iris);
   color: var(--cloud);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team-social-link:hover,
 .team-social-link:focus {
@@ -344,6 +359,9 @@ button {
   fill: #f4f4fd;
 }
 /*Customers */
+.customers {
+  padding: 120px 0;
+}
 .customers-list {
   display: flex;
   gap: 24px;
@@ -364,9 +382,12 @@ button {
   border-radius: 4px;
   border: 1px solid var(--lightslate);
   padding: 16px 32px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.customers-item-link:hover {
+.customers-item-link:hover .customers-item-link:focus {
   border-color: var(--ocean);
+  color: var(--ocean);
 }
 .customers-icon {
   fill: currentColor;
@@ -442,7 +463,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: (46, 47, 66, 0.4);
+  background-color: rgba(46, 47, 66, 0.4);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -458,7 +479,6 @@ button {
   width: 408px;
   min-height: 584px;
   border-radius: 4px;
-  background-color: ;
   background: var(--dairy);
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
     0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
@@ -480,8 +500,7 @@ button {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -489,6 +508,7 @@ button {
 .modal-btn:focus {
   fill: var(--white);
   background-color: var(--ocean);
+  border: none;
 }
 .button-image {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -515,7 +535,7 @@ button {
   font-weight: 500;
   line-height: 1.5; /* 150% */
   letter-spacing: 0.04em;
-  border: 1px solid var(--cornflower);
+  border-color: 1px solid var(--cornflower);
   background-color: var(--cloud);
   cursor: pointer;
   padding: 12px 24px;
@@ -523,15 +543,15 @@ button {
   box-shadow: 0;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-btn:hover,
 .filter-btn:focus {
-  background: var(--ocean);
   color: var(--white);
-  border: 1px solid transparent;
+  background-color: var(--ocean);
+  border-color: 1px solid transparent;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
     0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
 }
@@ -546,13 +566,13 @@ button {
 }
 
 .portfolio-card-link {
+  display: block;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.portfolio-card-link:hover {
-  border: 1px solid var(--cloud);
-  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
-    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
-    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+.portfolio-card-link:hover,
+.portfolio-card-link:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 .portfolio-wrapper {
   position: relative;
@@ -570,11 +590,11 @@ button {
   letter-spacing: 0.02em;
   color: var(--cloud);
   background-color: var(--iris);
-  transition: transform 250 ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.portfolio-wrapper:hover .wrapper-text,
-.portfolio-wrapper:focus .wrapper-text {
+.portfolio-card-link:hover .wrapper-text,
+.portfolio-card-link:focus .wrapper-text {
   transform: translateY(0%);
 }
 .portfolio-box {
