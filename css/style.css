@@ -118,12 +118,12 @@ button {
   color: var(--ocean);
 }
 
-.nav-page:after {
-  content: ' ';
+.nav-page::after {
+  content: '';
   position: absolute;
   width: 100%;
   left: 0;
-  bottom: 1px;
+  bottom: -1px;
   height: 4px;
   background-color: var(--ocean);
   border-radius: 2px;
