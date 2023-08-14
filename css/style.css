@@ -118,7 +118,7 @@ button {
   color: var(--ocean);
 }
 
-.nav-page::after {
+.nav-page.current::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -364,7 +364,6 @@ button {
 .customers-list {
   display: flex;
   gap: 24px;
-  padding-bottom: 120px;
 }
 .customers-item {
   width: 168px;
@@ -561,7 +560,7 @@ button {
   row-gap: 48px;
 }
 .portfolio-card-item {
-  width: calc((100% - 24 * 2) / 3);
+  flex-basis: calc((100% - 24 * 2) / 3);
 }
 
 .portfolio-card-link {
